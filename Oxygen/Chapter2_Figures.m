@@ -2,6 +2,7 @@
 % Code will produce figures in Chapter 2 of OOI BGC Sensor Best Practices
 % CSV files are in shared google drive. 
 % https://drive.google.com/drive/folders/1ZQyt2YfRBE1IAxZcQewDwRvfDUufSuoX?usp=sharing
+addpath('C:\Users\palevsky\Desktop\oxygen')
 
 %% General plotting stuff 
 
@@ -98,22 +99,27 @@ subplot(2,1,1)
 plot(deploy8.datetime,deploy8.oxygen_uncorrected_umol_kg,'Color',blue,'Linewidth',1.5)
 hold on
 plot(deploy9.datetime,deploy9.oxygen_uncorrected_umol_kg,'Color',red,'Linewidth',1.5)
-plot(deploy8.datetime,deploy8.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',1.5)
-plot(deploy9.datetime,deploy9.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',1.5)
+plot(deploy8.datetime,deploy8.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',1)
+plot(deploy9.datetime,deploy9.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',1)
 plot(winklers.CTDBottleClosureTime_UTC,winklers.DiscreteOxygen_umolkg,...
     'ok','MarkerSize',5,'MarkerFaceColor','k')
 ylabel('DO (\mumol kg^-^1)')
+xlim([datetime(2019,4,10) datetime(2020,7,20)])
 
 subplot(2,1,2)
-plot(deploy8.datetime,deploy8.oxygen_uncorrected_umol_kg,'Color',blue,'Linewidth',2.5)
+plot(deploy8.datetime,deploy8.oxygen_uncorrected_umol_kg,'Color',blue,'Linewidth',1.5)
 hold on
-plot(deploy9.datetime,deploy9.oxygen_uncorrected_umol_kg,'Color',red,'Linewidth',2.5)
-plot(deploy8.datetime,deploy8.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',2.5)
+plot(deploy9.datetime,deploy9.oxygen_uncorrected_umol_kg,'Color',red,'Linewidth',1.5)
+plot(deploy8.datetime,deploy8.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',1.5)
 plot(winklers.CTDBottleClosureTime_UTC,winklers.DiscreteOxygen_umolkg,...
     'ok','MarkerSize',8,'MarkerFaceColor','k')
-plot(deploy9.datetime,deploy9.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',2.5)
+plot(deploy9.datetime,deploy9.oxygen_corrected_umol_kg,'Color',grey,'Linewidth',1.5)
 plot(winklers.CTDBottleClosureTime_UTC,winklers.DiscreteOxygen_umolkg,...
     'ok','MarkerSize',8,'MarkerFaceColor','k')
 ylabel('DO (\mumol kg^-^1)')
 legend('Deployment 8','Deployment 9','Corrected','Winkler','Location','southoutside',...
     'Orientation','horizontal')
+xlim([datetime(2019,10,20) datetime(2019,10,24)])
+ylim([220 280])
+
+%also ask about figure exporting
